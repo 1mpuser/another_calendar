@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar from Windows</title>
+    <style>
+        #basis{
+            position: fixed;
+            text-align: center;
+            display: block;
+            border: solid 1px black;
+            width: 420px;
+            left: 50%;
+            margin: 0 0 0 -210px;
+        }
+        #divButtons{
+            text-align: center;
+
+        }
+        /*#prebasis{
+            text-align: center;
+        }*/
+        .buttons{
+            margin: 2px;
+            cursor: pointer;
+        }
+        .weekDays{
+            display:  inline-block;;
+            border: solid 0px;
+            width: 54px;
+            height: 20px;
+        }
+        #weekDays{
+            background: #ddd;
+            border-bottom: 1px solid #999;
+			border-top: 1px solid #999;
+        }
+        #divButtons{
+            position: absolute;
+            right: 10px;
+            display: block;
+            top: 0px;
+        }
+        #firstLine{
+            position: relative;
+            width: 100%;
+            height: 20px;
+        }
+        #MonthNYear{
+            position: absolute;
+            left: 10px;
+            top: 0px;
+            text-align: left;
+        }
+        .cell{
+            display:  inline-block;;
+            border: solid 0px;
+            width: 54px;
+            height: 20px;
+            transition: background .1s, color .1s;
+        }
+        .cell:hover {
+			/*border: 1px solid #000!important;*/
+			color: #fff;
+			background: #000!important;
+		}
+        .nowDay{
+            background: #000;
+			color: #fff;
+        }
+        .anotherWeeks{
+            margin: 0px;
+        }
+        #sixthWeek{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="basis">
+    <div id="firstLine">
+        <div id="MonthNYear"></div>
+        <div id="divButtons"><a class="buttons">&larr;</a><a class="buttons">&rarr;</a></div>
+    </div>
+    <div id="weekDays">
+        <div class="weekDays">Пн</div>
+        <div class="weekDays">Вт</div>
+        <div class="weekDays">Ср</div>
+        <div class="weekDays">Чт</div>
+        <div class="weekDays">Пт</div>
+        <div class="weekDays">Сб</div>
+        <div class="weekDays">Вс</div>
+    </div>
+    <div id="anotherWeeks">
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+    </div>
+    <div class="anotherWeeks">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="anotherWeeks">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="anotherWeeks">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div id="anotherWeeks">
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+    </div>
+    <div id="sixthWeek">
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div id="tableDiv">    
+        <table>
+        <thead>
+            <tr>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th>Сб</th>
+                <th>Вс</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        </table>
+    </div> -->
+
+
+
+
+
+<script src="code.js"></script>
+</body>
+</html>
