@@ -126,7 +126,6 @@ function addPickedClass() {
 	let length = arrOfComparedDates.length;
 	let picked = document.getElementsByClassName('picked');
 	if (length == 0 || length == 1) {
-		console.log('if');
 		if (length == 0) {
 			for (let elem of picked) elem.classList.remove('picked');
 		}
@@ -141,10 +140,8 @@ function addPickedClass() {
 			p.innerText = 'Между выбранами датами: ' + diff;
 		}
 	} else {
-		console.log('else');
-		//console.log(picked);
 		for (let elem of picked) elem.classList.remove('picked');
-		picked[0].classList.remove('picked');
+		if (picked.length != 0) picked[0].classList.remove('picked');
 		console.log(picked);
 		this.classList.add('picked');
 		let day = this.innerText;
@@ -153,6 +150,5 @@ function addPickedClass() {
 		let string = day + '_' + month + '_' + year;
 		arrOfComparedDates.length = 0;
 		arrOfComparedDates.push(string);
-		//console.log(document.getElementsByClassName('picked'));
 	}
 }
